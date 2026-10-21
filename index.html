@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>কিছুক্ষণ EATS - Street Food Kiosk Menu</title>
+  <meta name="description"
+    content="Official digital street food menu for কিছুক্ষণ EATS. Fresh craft burgers, loaded meat boxes, wings, chicken shawarma wraps, and crispy fries in warm cream poster design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Teko:wght@600;700&family=Hind+Siliguri:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #F26B1D;
+      --primary-dark: #D4530A;
+      --primary-light: #FF853E;
+      --primary-glow: rgba(242, 107, 29, 0.35);
+      --bg-cream: #FDFBF7;
+      --bg-warm: #F7F3EC;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFBF8;
+      --text-charcoal: #18191B;
+      --text-body: #4B525F;
+      --text-muted: #737A87;
+      --border: #E8E2D8;
+      --border-light: #F0ECE4;
+      --border-accent: #F26B1D;
+      --shadow-sm: 0 2px 8px rgba(24, 25, 27, 0.05);
+      --shadow-md: 0 8px 24px rgba(24, 25, 27, 0.07);
+      --shadow-lg: 0 16px 40px rgba(24, 25, 27, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Celebration Canvas for Festive Firecrackers */
+    #celebrationCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* App Shell Container */
+    .app-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .app-wrap > * {
+      pointer-events: auto;
+    }
+
+    /* Celebration Welcome Toast */
+    .celebration-toast {
+      background: linear-gradient(135deg, #FFF6EE 0%, #FFFFFF 100%);
+      border: 1.5px solid #F8B182;
+      border-radius: 18px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(242, 107, 29, 0.12);
+      animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-24px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .toast-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .firework-icon {
+      font-size: 1.9rem;
+      animation: bounce 1.4s infinite ease-in-out;
+      display: inline-block;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        transform: scale(1.2) rotate(12deg);
+      }
+    }
+
+    .toast-text h4 {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-text p {
+      font-size: 0.84rem;
+      color: var(--text-body);
+      margin-top: 2px;
+    }
+
+    .blast-btn {
+      background: var(--primary);
+      border: none;
+      color: #FFF;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--primary-glow);
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .blast-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(242, 107, 29, 0.45);
+    }
+
+    /* Top Brand Navigation */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 26px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid var(--border);
+      border-radius: 22px;
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+    }
+
+    .brand-cart-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      box-shadow: 0 6px 16px var(--primary-glow);
+      flex-shrink: 0;
+    }
+
+    .brand-cart-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    .brand-name-wrap h1 {
+      font-family: 'Hind Siliguri', 'Teko', sans-serif;
+      font-size: 1.95rem;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--text-charcoal);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name-wrap h1 span {
+      color: var(--primary);
+      font-family: 'Teko', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 1px;
+    }
+
+    .brand-name-wrap p {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .kiosk-status-pill {
+      background: #EAF7EE;
+      color: #166534;
+      border: 1px solid #BBF7D0;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .kiosk-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      animation: pulse 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(1.25);
+      }
+    }
+
+    .pdf-download-dropdown {
+      position: relative;
+    }
+
+    .pdf-btn {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      color: var(--text-charcoal);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 10px 18px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+
+    .pdf-btn:hover {
+      background: #FFF9F4;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .pdf-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 8px;
+      min-width: 220px;
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+    }
+
+    .pdf-download-dropdown:hover .pdf-menu,
+    .pdf-download-dropdown:focus-within .pdf-menu {
+      display: block;
+    }
+
+    .pdf-menu a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      color: var(--text-charcoal);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .pdf-menu a:hover {
+      background: #FFF5EE;
+      color: var(--primary);
+    }
+
+    .pdf-menu span.dim {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Hero Banner Showcase */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F3 100%);
+      border: 1.5px solid var(--border);
+      border-radius: 28px;
+      padding: 38px 42px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(242, 107, 29, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF3EB;
+      border: 1px solid #FDC8A8;
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-family: 'Hind Siliguri', 'Teko', sans-serif;
+      font-size: 2.9rem;
+      line-height: 1.08;
+      font-weight: 800;
+      color: var(--text-charcoal);
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-desc {
+      font-size: 0.98rem;
+      color: var(--text-body);
+      max-width: 500px;
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      padding-top: 18px;
+      border-top: 1.5px solid var(--border-light);
+    }
+
+    .stat-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-box h4 {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.1rem;
+      line-height: 0.9;
+      color: var(--primary);
+    }
+
+    .stat-box p {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Hero Food Visual Grid */
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 8px 22px rgba(24, 25, 27, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #F0EAE1;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(242, 107, 29, 0.25);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(24, 25, 27, 0.85) 0%, rgba(24, 25, 27, 0.1) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 14px;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.5px;
+      color: #FFF;
+      text-transform: uppercase;
+    }
+
+    /* Category Navigation & Search Filter */
+    .filter-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      padding: 14px 20px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .category-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-btn {
+      background: var(--bg-warm);
+      border: 1.5px solid transparent;
+      color: var(--text-body);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .cat-btn:hover {
+      background: #FFF0E6;
+      color: var(--primary);
+    }
+
+    .cat-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFF;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg-warm);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 8px 16px;
+      gap: 10px;
+      width: 280px;
+      transition: border-color 0.2s;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--primary);
+      background: #FFF;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text-charcoal);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Menu Sections Grid */
+    .menu-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .section-block {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 26px;
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease;
+    }
+
+    .section-block:hover {
+      border-color: #E2D7C8;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--bg-warm);
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-num {
+      font-family: 'Teko', sans-serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      color: var(--primary);
+      background: #FFF3EB;
+      border: 1px solid #FDC8A8;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section-title-wrap h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-charcoal);
+      letter-spacing: -0.3px;
+    }
+
+    .section-title-wrap p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .section-right-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-badge {
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    /* Category Photo Thumbnail inside Section Header (from Menu Poster) */
+    .section-thumb {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid #FFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      flex-shrink: 0;
+      background: #F0ECE4;
+    }
+
+    .section-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Cards Grid Inside Section */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+
+    .food-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .food-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(242, 107, 29, 0.14);
+    }
+
+    .food-card.special-card {
+      border: 1.8px solid var(--primary);
+      background: linear-gradient(135deg, #FFF9F3 0%, #FFFFFF 100%);
+      box-shadow: 0 6px 18px rgba(242, 107, 29, 0.08);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .card-title-group {
+      flex: 1;
+    }
+
+    .card-title-group h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-charcoal);
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .special-card .card-title-group h4 {
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+      color: #C04705;
+    }
+
+    .special-tag {
+      background: var(--primary);
+      color: #FFF;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow: 0 2px 6px rgba(242, 107, 29, 0.3);
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* Picture thumbnail inside food card */
+    .card-photo {
+      width: 76px;
+      height: 76px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+      background: #F0ECE4;
+    }
+
+    .card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .food-card:hover .card-photo img {
+      transform: scale(1.1);
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .price-tag {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.1rem;
+      line-height: 0.85;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .order-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--text-body);
+      background: var(--bg-warm);
+      padding: 5px 12px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--border-light);
+    }
+
+    .special-card .order-tag {
+      color: #9C3804;
+      background: #FFE8D6;
+      border-color: #FDC8A8;
+    }
+
+    /* Appetizing Photo Banner Strip (from Menu Poster) */
+    .photo-banner-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .banner-dish-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      border: 2px solid #FFF;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s, box-shadow 0.25s;
+      background: #F0EAE1;
+    }
+
+    .banner-dish-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(242, 107, 29, 0.2);
+    }
+
+    .banner-dish-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .banner-dish-card .dish-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(24, 25, 27, 0.88) 0%, transparent 100%);
+      color: #FFF;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .banner-dish-card .dish-price {
+      color: #FFB380;
+      font-size: 1.15rem;
+    }
+
+    /* Floating Firecracker Button */
+    .fab-firework {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid #FFF;
+      box-shadow: 0 8px 24px var(--primary-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .fab-firework:hover {
+      transform: scale(1.15) rotate(12deg);
+      box-shadow: 0 12px 30px rgba(242, 107, 29, 0.6);
+    }
+
+    /* Footer Note */
+    .menu-footer {
+      text-align: center;
+      padding: 24px 20px;
+      border-top: 1.5px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-brand {
+      font-family: 'Hind Siliguri', 'Teko', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text-charcoal);
+    }
+
+    .footer-brand span {
+      color: var(--primary);
+    }
+
+    /* ========================================================
+       MOBILE-FIRST RESPONSIVE DESIGN (OPTIMIZED FOR PHONES)
+       ======================================================== */
+
+    /* Tablet & Medium Screens */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 28px 24px;
+        gap: 24px;
+      }
+
+      .photo-banner-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .section-header {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .section-right-wrap {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    /* Mobile Phones & Small Screens (< 680px) */
+    @media (max-width: 680px) {
+
+      html,
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .app-wrap {
+        padding: 10px 12px 84px;
+        gap: 18px;
+        max-width: 100%;
+      }
+
+      /* Compact Mobile Navbar */
+      .navbar {
+        padding: 8px 12px;
+        top: 6px;
+        border-radius: 16px;
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .brand-cart-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+      }
+
+      .brand-cart-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .brand-name-wrap h1 {
+        font-size: 1.35rem;
+      }
+
+      .brand-name-wrap h1 span {
+        font-size: 1.45rem;
+      }
+
+      .brand-name-wrap p {
+        font-size: 0.64rem;
+        letter-spacing: 0.8px;
+      }
+
+      .nav-actions {
+        gap: 6px;
+      }
+
+      .kiosk-status-pill {
+        padding: 4px 8px;
+        font-size: 0.66rem;
+        gap: 4px;
+      }
+
+      .pdf-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        gap: 4px;
+        border-radius: 10px;
+      }
+
+      .pdf-menu {
+        right: -8px;
+        min-width: 190px;
+      }
+
+      /* Celebration Toast */
+      .celebration-toast {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 14px;
+        gap: 10px;
+        border-radius: 14px;
+      }
+
+      .toast-content {
+        gap: 10px;
+      }
+
+      .firework-icon {
+        font-size: 1.45rem;
+      }
+
+      .toast-text h4 {
+        font-size: 0.92rem;
+      }
+
+      .toast-text p {
+        font-size: 0.76rem;
+      }
+
+      .blast-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      /* Hero Banner Mobile */
+      .hero {
+        padding: 18px 16px;
+        border-radius: 20px;
+        gap: 18px;
+      }
+
+      .hero-badge {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        margin-bottom: 8px;
+      }
+
+      .hero-title {
+        font-size: 1.75rem;
+        line-height: 1.15;
+        margin-bottom: 8px;
+      }
+
+      .hero-desc {
+        font-size: 0.84rem;
+        margin-bottom: 14px;
+        line-height: 1.45;
+      }
+
+      .hero-stats {
+        gap: 8px;
+        padding-top: 12px;
+      }
+
+      .stat-box {
+        padding: 6px 8px;
+        border-radius: 10px;
+        flex: 1;
+        text-align: center;
+      }
+
+      .stat-box h4 {
+        font-size: 1.55rem;
+      }
+
+      .stat-box p {
+        font-size: 0.62rem;
+        letter-spacing: 0.4px;
+      }
+
+      .hero-gallery {
+        gap: 8px;
+      }
+
+      .gallery-card {
+        border-radius: 14px;
+      }
+
+      .gallery-overlay {
+        font-size: 1.1rem;
+        padding: 6px 10px;
+      }
+
+      /* Photo Banner Strip - Smooth Swipe Carousel on Mobile */
+      .photo-banner-strip {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 2px 2px 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -4px;
+      }
+
+      .photo-banner-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .banner-dish-card {
+        flex: 0 0 76%;
+        scroll-snap-align: start;
+        border-radius: 16px;
+        aspect-ratio: 16 / 10;
+      }
+
+      .banner-dish-card .dish-label {
+        padding: 8px 12px;
+        font-size: 1.15rem;
+      }
+
+      /* Sticky Mobile Category Navigation Bar */
+      .filter-section {
+        position: sticky;
+        top: 60px;
+        z-index: 95;
+        padding: 10px 12px;
+        border-radius: 16px;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .category-pills {
+        width: 100%;
+        gap: 6px;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .cat-btn {
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        flex-shrink: 0;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 7px 12px;
+        border-radius: 10px;
+      }
+
+      .search-box input {
+        font-size: 0.82rem;
+      }
+
+      /* Menu Sections */
+      .menu-sections {
+        gap: 18px;
+      }
+
+      .section-block {
+        padding: 14px 12px;
+        border-radius: 18px;
+      }
+
+      .section-header {
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .section-title-wrap {
+        gap: 10px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .section-num {
+        width: 34px;
+        height: 34px;
+        font-size: 1.35rem;
+        border-radius: 9px;
+        flex-shrink: 0;
+      }
+
+      .section-title-wrap h3 {
+        font-size: 1.12rem;
+        line-height: 1.2;
+        word-break: break-word;
+      }
+
+      .section-title-wrap p {
+        font-size: 0.72rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .section-right-wrap {
+        width: auto;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .section-badge {
+        display: none;
+        /* Hidden on narrow mobile headers for clean fit */
+      }
+
+      .section-thumb {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+      }
+
+      /* Cards Grid - 1-Column 100% Mobile Optimized */
+      .items-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .food-card {
+        padding: 12px 14px;
+        border-radius: 16px;
+        gap: 10px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .food-card:active {
+        transform: scale(0.99);
+      }
+
+      .card-top {
+        gap: 10px;
+        align-items: center;
+      }
+
+      .card-title-group {
+        min-width: 0;
+      }
+
+      .card-title-group h4 {
+        font-size: 0.96rem;
+        line-height: 1.25;
+        word-break: break-word;
+      }
+
+      .card-desc {
+        font-size: 0.76rem;
+        line-height: 1.35;
+        margin-top: 3px;
+      }
+
+      .card-photo {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        flex-shrink: 0;
+      }
+
+      .card-bottom {
+        padding-top: 8px;
+      }
+
+      .price-tag {
+        font-size: 1.85rem;
+      }
+
+      .order-tag {
+        font-size: 0.68rem;
+        padding: 4px 9px;
+        border-radius: 6px;
+      }
+
+      /* Floating Blast Button on Mobile */
+      .fab-firework {
+        width: 48px;
+        height: 48px;
+        font-size: 1.35rem;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .menu-footer {
+        padding: 18px 12px;
+        font-size: 0.76rem;
+      }
+    }
+
+    /* Small Mobile Phones (iPhone SE, 320px - 380px) */
+    @media (max-width: 380px) {
+      .brand-name-wrap p {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 1.55rem;
+      }
+
+      .banner-dish-card {
+        flex: 0 0 88%;
+      }
+
+      .card-photo {
+        width: 62px;
+        height: 62px;
+      }
+
+      .price-tag {
+        font-size: 1.65rem;
+      }
+    }
+
+    /* ========================================================
+       FLOATING ROAMING FOOD EMOJIS (ON TOP OF ALL SECTIONS)
+       ======================================================== */
+    .food-critter-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 99999; /* On top of the entire design, headers & cards */
+      overflow: hidden;
+    }
+
+    .food-critter {
+      position: absolute;
+      pointer-events: auto;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      font-size: 2.7rem;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.25));
+      transition: transform 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      touch-action: manipulation;
+      z-index: 100000;
+    }
+
+    .food-critter:hover,
+    .food-critter:active {
+      transform: scale(1.25);
+    }
+
+    .food-critter.bouncing {
+      animation: critterPop 0.42s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    @keyframes critterPop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.5) rotate(-14deg); }
+      75% { transform: scale(0.92) rotate(8deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    /* Small Floating Speech Bubble (Appears on click & slowly disappears) */
+    .critter-bubble {
+      position: absolute;
+      pointer-events: none;
+      background: #18191B;
+      color: #FFFFFF;
+      border: 2px solid var(--primary);
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 5px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      z-index: 100001;
+      transform: translate(-50%, -100%);
+      animation: bubbleFloatDisappear 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes bubbleFloatDisappear {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 0) scale(0.4);
+      }
+      15% {
+        opacity: 1;
+        transform: translate(-50%, -24px) scale(1.08);
+      }
+      70% {
+        opacity: 1;
+        transform: translate(-50%, -40px) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -60px) scale(0.85);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .food-critter {
+        font-size: 2.1rem;
+        width: 46px;
+        height: 46px;
+      }
+      .critter-bubble {
+        font-size: 0.82rem;
+        padding: 4px 11px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .food-critter {
+        font-size: 1.85rem;
+        width: 40px;
+        height: 40px;
+      }
+      .critter-bubble {
+        font-size: 0.78rem;
+        padding: 3px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Fullscreen Firecracker Canvas -->
+  <canvas id="celebrationCanvas"></canvas>
+
+  <!-- Floating Food Emojis Layer (On top of design) -->
+  <div class="food-critter-container" id="foodCritters"></div>
+
+  <div class="app-wrap">
+
+    <!-- Celebration Welcome Alert with Firecracker Blast Trigger -->
+    <div class="celebration-toast" id="toastAlert">
+      <div class="toast-content">
+        <span class="firework-icon">🎆</span>
+        <div class="toast-text">
+          <h4>Welcome to কিছুক্ষণ EATS! Celebration Live 🎉</h4>
+          <p>Street food cart menu • Warm poster edition with delicious food photography!</p>
+        </div>
+      </div>
+      <button class="blast-btn" onclick="launchFireworks(60)">
+        Blast Firecrackers 💥
+      </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <a href="#" class="brand">
+        <div class="brand-cart-icon">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C7.58 2 4 4.01 4 6.5C4 7.6 4.71 8.59 5.89 9.32C5.33 9.94 5 10.74 5 11.62C5 12.87 5.67 13.96 6.67 14.61C6.25 15.3 6 16.11 6 17C6 19.76 8.69 22 12 22C15.31 22 18 19.76 18 17C18 16.11 17.75 15.3 17.33 14.61C18.33 13.96 19 12.87 19 11.62C19 10.74 18.67 9.94 18.11 9.32C19.29 8.59 20 7.6 20 6.5C20 4.01 16.42 2 12 2Z" />
+          </svg>
+        </div>
+        <div class="brand-name-wrap">
+          <h1>কিছুক্ষণ <span>EATS</span></h1>
+          <p>Street Food Kiosk • Hot & Crispy</p>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <div class="kiosk-status-pill">
+          <span class="kiosk-status-dot"></span>
+          Kiosk Open
+        </div>
+
+        <!-- Download Printable PDFs Dropdown -->
+        <div class="pdf-download-dropdown">
+          <button class="pdf-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Print Posters
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="pdf-menu">
+            <a href="menu_prints/kichukkhon_eats_menu_small_8x12.pdf" download>
+              <span>Small Poster</span>
+              <span class="dim">8" × 12"</span>
+            </a>
+            <a href="menu_prints/kichukkhon_eats_menu_medium_10x15.pdf" download>
+              <span>Medium Poster</span>
+              <span class="dim">10" × 15"</span>
+            </a>
+            <a href="menu_prints/kichukkhon_eats_menu_large_12x18.pdf" download>
+              <span>Large Poster</span>
+              <span class="dim">12" × 18"</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+      <div class="hero-left">
+        <span class="hero-badge">★ Fresh Street Food Cart</span>
+        <h2 class="hero-title">AUTHENTIC <span>STREET BITES</span> PREPARED HOT</h2>
+        <p class="hero-desc">Enjoy our golden crispy chicken burgers, loaded meat boxes, glazed hot wings, authentic
+          chicken shawarma wraps, and peri-peri seasoned fries!</p>
+        <div class="hero-stats">
+          <div class="stat-box">
+            <h4>23+</h4>
+            <p>Menu Items</p>
+          </div>
+          <div class="stat-box">
+            <h4>100%</h4>
+            <p>Fresh Daily</p>
+          </div>
+          <div class="stat-box">
+            <h4>60৳</h4>
+            <p>Starts From</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-gallery">
+        <div class="gallery-card">
+          <img src="menu_assets/burger.jpg" alt="Craft Burgers" />
+          <div class="gallery-overlay">Craft Burgers</div>
+        </div>
+        <div class="gallery-card">
+          <img src="menu_assets/meatbox.jpg" alt="Loaded Meat Box" />
+          <div class="gallery-overlay">Meat Boxes</div>
+        </div>
+        <div class="gallery-card">
+          <img src="menu_assets/wings.jpg" alt="Crispy Wings" />
+          <div class="gallery-overlay">Wings & Thai Fry</div>
+        </div>
+        <div class="gallery-card">
+          <img src="menu_assets/shawarma.jpg" alt="Chicken Shawarma" />
+          <div class="gallery-overlay">Shawarma & Fries</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appetizing Photo Banner Strip -->
+    <section class="photo-banner-strip">
+      <div class="banner-dish-card">
+        <img src="menu_assets/burger.jpg" alt="Crispy Chicken Burger" />
+        <div class="dish-label">
+          <span>Crispy Burgers</span>
+          <span class="dish-price">70৳ - 200৳</span>
+        </div>
+      </div>
+      <div class="banner-dish-card">
+        <img src="menu_assets/meatbox.jpg" alt="Loaded Meat Box" />
+        <div class="dish-label">
+          <span>Loaded Meat Box</span>
+          <span class="dish-price">100৳ - 200৳</span>
+        </div>
+      </div>
+      <div class="banner-dish-card">
+        <img src="menu_assets/sandwich.jpg" alt="Toasted Sandwiches" />
+        <div class="dish-label">
+          <span>Club Sandwiches</span>
+          <span class="dish-price">120৳ - 200৳</span>
+        </div>
+      </div>
+      <div class="banner-dish-card">
+        <img src="menu_assets/fries.jpg" alt="Crispy French Fries" />
+        <div class="dish-label">
+          <span>Golden Fries</span>
+          <span class="dish-price">60৳ - 70৳</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters & Search Toolbar -->
+    <div class="filter-section">
+      <div class="category-pills" id="categoryPills">
+        <button class="cat-btn active" onclick="filterCategory('all')">All Items (23)</button>
+        <button class="cat-btn" onclick="filterCategory('burgers')">Burgers (8)</button>
+        <button class="cat-btn" onclick="filterCategory('meatbox')">Meat Box (3)</button>
+        <button class="cat-btn" onclick="filterCategory('sandwiches')">Sandwiches (4)</button>
+        <button class="cat-btn" onclick="filterCategory('wings')">Wings & Thai (5)</button>
+        <button class="cat-btn" onclick="filterCategory('shawarma')">Shawarma & Fries (4)</button>
+      </div>
+
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#737A87" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search delicious bites..."
+          oninput="handleSearch(this.value)" />
+      </div>
+    </div>
+
+    <!-- Menu Sections -->
+    <main class="menu-sections" id="menuContainer">
+
+      <!-- SECTION 01: Mini Chicken Crispy Burger -->
+      <section class="section-block" data-category="burgers">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">01</span>
+            <div>
+              <h3>Mini Chicken Crispy Burger</h3>
+              <p>Crunchy mini bites packed with big street flavor</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Mini Sliders</span>
+            <div class="section-thumb">
+              <img src="menu_assets/burger.jpg" alt="Mini Chicken Crispy Burger" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="mini chicken crispy burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Mini Chicken Crispy Burger</h4>
+                <p class="card-desc">Golden crispy chicken fillet, house garlic mayo & shredded iceberg lettuce</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Mini Chicken Crispy Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Single Slider</span>
+              <span class="price-tag">70/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="mini chicken crispy cheese burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Mini Chicken Crispy Cheese Burger</h4>
+                <p class="card-desc">Crispy mini fillet layered with rich melted American cheddar cheese slice</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Mini Crispy Cheese Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">With Cheese</span>
+              <span class="price-tag">100/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="mini chicken cheese sausage burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Mini Chicken Cheese Sausage Burger</h4>
+                <p class="card-desc">Double joy: crispy mini fillet topped with sliced smoky sausage and melted cheese
+                </p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Mini Cheese Sausage Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Sausage & Cheese</span>
+              <span class="price-tag">120/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 02: Chicken Patty Burger -->
+      <section class="section-block" data-category="burgers">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">02</span>
+            <div>
+              <h3>Chicken Patty Burger</h3>
+              <p>Juicy grilled chicken patties in toasted brioche buns</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Classic Burgers</span>
+            <div class="section-thumb">
+              <img src="menu_assets/burger.jpg" alt="Chicken Patty Burger" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="chicken patty burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Patty Burger</h4>
+                <p class="card-desc">Grilled spiced chicken patty, fresh garden greens, tomato & house sauce</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Chicken Patty Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Standard Patty</span>
+              <span class="price-tag">100/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="chicken patty cheese burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Patty Cheese Burger</h4>
+                <p class="card-desc">Grilled chicken patty enveloped in molten cheddar cheese slice</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Chicken Patty Cheese Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Cheddar Melt</span>
+              <span class="price-tag">130/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="chicken patty cheese and sausage burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Patty Cheese & Sausage Burger</h4>
+                <p class="card-desc">Smoky chicken sausage, cheese layer and tender grilled chicken patty</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Patty Cheese & Sausage Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Loaded Stack</span>
+              <span class="price-tag">150/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="chicken cheese and egg burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Cheese & Egg Burger</h4>
+                <p class="card-desc">Sunny-fried egg, golden cheese slice and juicy grilled chicken patty</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="Chicken Cheese & Egg Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Egg & Cheese</span>
+              <span class="price-tag">160/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="kichukkhon special burger">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  কিছুক্ষণ স্পেশাল Burger
+                  <span class="special-tag">Chef's Monster</span>
+                </h4>
+                <p class="card-desc">Patty + Crispy Fillet + Sausage Slices + Sunny Egg + Double Melted Cheddar</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/burger.jpg" alt="কিছুক্ষণ স্পেশাল Burger" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Kiosk Signature</span>
+              <span class="price-tag">200/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 03: Loaded Meat Box -->
+      <section class="section-block" data-category="meatbox">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">03</span>
+            <div>
+              <h3>Loaded Meat Box</h3>
+              <p>Layers of seasoned french fries smothered in chicken and rich sauces</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Crowd Favorite</span>
+            <div class="section-thumb">
+              <img src="menu_assets/meatbox.jpg" alt="Loaded Meat Box" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="classic meat box mini">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Classic Meat Box (Mini)</h4>
+                <p class="card-desc">Crispy fried chicken cubes, golden fries & house garlic mayo drizzle</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/meatbox.jpg" alt="Classic Meat Box Mini" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Mini Box</span>
+              <span class="price-tag">100/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="classic meat box big">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Classic Meat Box (Big)</h4>
+                <p class="card-desc">Generous double-portion fries loaded with savory fried chicken</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/meatbox.jpg" alt="Classic Meat Box Big" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Full Size</span>
+              <span class="price-tag">150/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="kichukkhon special meat box">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  কিছুক্ষণ স্পেশাল Meat Box
+                  <span class="special-tag">Loaded Supreme</span>
+                </h4>
+                <p class="card-desc">Crispy chicken + grilled sausages + nuggets + extra rich cheese cream drizzle</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/meatbox.jpg" alt="কিছুক্ষণ স্পেশাল Meat Box" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Best Seller</span>
+              <span class="price-tag">200/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 04: Toasted Sandwiches -->
+      <section class="section-block" data-category="sandwiches">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">04</span>
+            <div>
+              <h3>Toasted Sandwiches</h3>
+              <p>Buttery golden grilled bread filled with shredded meats & melted cheese</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Toasts & Clubs</span>
+            <div class="section-thumb">
+              <img src="menu_assets/sandwich.jpg" alt="Toasted Sandwiches" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="chicken cheese sandwich">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Cheese Sandwich</h4>
+                <p class="card-desc">Succulent shredded chicken with gooey melted cheddar</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/sandwich.jpg" alt="Chicken Cheese Sandwich" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Classic Melt</span>
+              <span class="price-tag">120/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="chicken cheese egg sandwich">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Cheese Egg Sandwich</h4>
+                <p class="card-desc">Wholesome spiced omelette layer + shredded chicken & cheese</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/sandwich.jpg" alt="Chicken Cheese Egg Sandwich" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">With Egg</span>
+              <span class="price-tag">150/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="chicken cheese sausage sandwich">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Cheese Sausage Sandwich</h4>
+                <p class="card-desc">Loaded with sliced chicken sausages, seasoned chicken and cheese</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/sandwich.jpg" alt="Chicken Cheese Sausage Sandwich" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">With Sausage</span>
+              <span class="price-tag">150/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="kichukkhon special sandwich">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  কিছুক্ষণ স্পেশাল Sandwich
+                  <span class="special-tag">Triple Decker</span>
+                </h4>
+                <p class="card-desc">3-tier toasted club: Chicken + Sausage + Fried Egg + Double Melted Cheese</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/sandwich.jpg" alt="কিছুক্ষণ স্পেশাল Sandwich" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Triple Decker</span>
+              <span class="price-tag">200/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 05: Wings (4 Pcs) -->
+      <section class="section-block" data-category="wings">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">05</span>
+            <div>
+              <h3>Chicken Wings (4 Pcs)</h3>
+              <p>Crispy fried and fiery glazed street wings</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Hot Wings</span>
+            <div class="section-thumb">
+              <img src="menu_assets/wings.jpg" alt="Chicken Wings" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="classic chicken wings">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Classic Chicken Wings (4 Pcs)</h4>
+                <p class="card-desc">Traditional savory fried wings seasoned with house herb blend</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/wings.jpg" alt="Classic Chicken Wings" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">4 Pieces</span>
+              <span class="price-tag">100/-</span>
+            </div>
+          </div>
+
+          <div class="food-card" data-name="crispy chicken wings">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Crispy Chicken Wings (4 Pcs)</h4>
+                <p class="card-desc">Extra crunchy batter coating for the ultimate crispy sound</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/wings.jpg" alt="Crispy Chicken Wings" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Extra Crunchy</span>
+              <span class="price-tag">100/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="hot wings">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  Hot Wings (4 Pcs)
+                  <span class="special-tag">Spicy Glazed</span>
+                </h4>
+                <p class="card-desc">Tossed in our fiery signature Naga-chili street glaze</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/wings.jpg" alt="Hot Wings" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Spicy Naga</span>
+              <span class="price-tag">110/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 06: Thai Fry Leg Pieces -->
+      <section class="section-block" data-category="wings">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">06</span>
+            <div>
+              <h3>Thai Fry Leg Pieces</h3>
+              <p>Marinated crispy whole chicken drumsticks</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Crispy Drumstick</span>
+            <div class="section-thumb">
+              <img src="menu_assets/thaifry.jpg" alt="Thai Fry Leg Pieces" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="chicken thai fry">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Chicken Thai Fry (Leg Piece)</h4>
+                <p class="card-desc">Aromatic Thai lemongrass marinade tender fried drumstick</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/thaifry.jpg" alt="Chicken Thai Fry" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Whole Leg Piece</span>
+              <span class="price-tag">100/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="chicken crispy thai fry">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  Chicken Crispy Thai Fry (Leg)
+                  <span class="special-tag">Flake Crunch</span>
+                </h4>
+                <p class="card-desc">Deep golden flake crunch drumstick with secret seasoning</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/thaifry.jpg" alt="Chicken Crispy Thai Fry" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Crispy Leg</span>
+              <span class="price-tag">110/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 07: Chicken Shawarma -->
+      <section class="section-block" data-category="shawarma">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">07</span>
+            <div>
+              <h3>Chicken Shawarma</h3>
+              <p>Fresh warm pita roll with authentic garlic tahini sauce</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Pita Wraps</span>
+            <div class="section-thumb">
+              <img src="menu_assets/shawarma.jpg" alt="Chicken Shawarma" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="classic chicken shawarma">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Classic Chicken Shawarma</h4>
+                <p class="card-desc">Spiced shredded chicken, pickled cucumbers & authentic garlic tahini toum</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/shawarma.jpg" alt="Classic Chicken Shawarma" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Pita Wrap</span>
+              <span class="price-tag">80/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="kichukkhon special shawarma">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  কিছুক্ষণ স্পেশাল Shawarma
+                  <span class="special-tag">Cheese & Sausage</span>
+                </h4>
+                <p class="card-desc">Loaded chicken + grilled sausage slices + melted cheese slice in warm flatbread</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/shawarma.jpg" alt="কিছুক্ষণ স্পেশাল Shawarma" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Loaded Wrap</span>
+              <span class="price-tag">120/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 08: French Fries -->
+      <section class="section-block" data-category="shawarma">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-num">08</span>
+            <div>
+              <h3>French Fries</h3>
+              <p>Crispy imported golden potato fries</p>
+            </div>
+          </div>
+          <div class="section-right-wrap">
+            <span class="section-badge">Golden Sides</span>
+            <div class="section-thumb">
+              <img src="menu_assets/fries.jpg" alt="French Fries" />
+            </div>
+          </div>
+        </div>
+        <div class="items-grid">
+          <div class="food-card" data-name="classic french fry">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>Classic French Fry</h4>
+                <p class="card-desc">Crispy golden fries seasoned with sea salt</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/fries.jpg" alt="Classic French Fry" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Salted</span>
+              <span class="price-tag">60/-</span>
+            </div>
+          </div>
+
+          <div class="food-card special-card" data-name="hot french fry">
+            <div class="card-top">
+              <div class="card-title-group">
+                <h4>
+                  Hot French Fry
+                  <span class="special-tag">Peri-Peri</span>
+                </h4>
+                <p class="card-desc">Dusted in zesty peri-peri spicy street masala</p>
+              </div>
+              <div class="card-photo">
+                <img src="menu_assets/fries.jpg" alt="Hot French Fry" />
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="order-tag">Spicy Masala</span>
+              <span class="price-tag">70/-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Note -->
+    <footer class="menu-footer">
+      <div class="footer-brand">কিছুক্ষণ <span>EATS</span></div>
+      <p>Street Food Cart & Kiosk • Hot, Crispy & Always Fresh</p>
+      <p>© 2026 কিছুক্ষণ EATS. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Floating Firecracker Blast Button -->
+  <button class="fab-firework" onclick="launchFireworks(80)" title="Blast Firecrackers!">
+    💥
+  </button>
+
+  <script>
+    /* ========================================================
+       FESTIVE FIRECRACKER & CELEBRATION PARTICLES ENGINE
+       ======================================================== */
+    const canvas = document.getElementById('celebrationCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Vibrant festive colors that shine brightly on warm light background
+    const colors = ['#F26B1D', '#D4530A', '#E63946', '#FF853E', '#F4A261', '#2A9D8F', '#3A86FF', '#D90429', '#E07A5F'];
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 8 + 3;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.025 + 0.015;
+        this.gravity = 0.18;
+        this.size = Math.random() * 4 + 2;
+      }
+      update() {
+        this.vx *= 0.98;
+        this.vy *= 0.98;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= this.decay;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function createFirecracker(x, y, count = 45) {
+      for (let i = 0; i < count; i++) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        particles.push(new Particle(x, y, color));
+      }
+    }
+
+    function launchFireworks(count = 50) {
+      const bursts = 4;
+      for (let b = 0; b < bursts; b++) {
+        setTimeout(() => {
+          const x = Math.random() * (canvas.width * 0.8) + (canvas.width * 0.1);
+          const y = Math.random() * (canvas.height * 0.5) + (canvas.height * 0.15);
+          createFirecracker(x, y, count);
+        }, b * 220);
+      }
+    }
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    // Auto trigger celebration on open
+    window.addEventListener('DOMContentLoaded', () => {
+      launchFireworks(50);
+      setTimeout(() => launchFireworks(60), 900);
+      setTimeout(() => launchFireworks(65), 2200);
+    });
+
+    // Tap to launch firecrackers anywhere
+    window.addEventListener('click', (e) => {
+      if (!e.target.closest('button') && !e.target.closest('a') && !e.target.closest('input')) {
+        createFirecracker(e.clientX, e.clientY, 35);
+      }
+    });
+
+    /* ========================================================
+       CATEGORY FILTER & SEARCH FUNCTIONALITY
+       ======================================================== */
+    function filterCategory(catKey) {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const sections = document.querySelectorAll('.section-block');
+      sections.forEach(sec => {
+        if (catKey === 'all' || sec.getAttribute('data-category') === catKey) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    function handleSearch(term) {
+      const q = term.toLowerCase().trim();
+      const cards = document.querySelectorAll('.food-card');
+      const sections = document.querySelectorAll('.section-block');
+
+      if (!q) {
+        cards.forEach(c => c.style.display = 'flex');
+        sections.forEach(s => s.style.display = 'block');
+        return;
+      }
+
+      sections.forEach(section => {
+        let hasMatch = false;
+        section.querySelectorAll('.food-card').forEach(card => {
+          const title = card.getAttribute('data-name') || '';
+          const text = card.textContent.toLowerCase();
+          if (title.includes(q) || text.includes(q)) {
+            card.style.display = 'flex';
+            hasMatch = true;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        section.style.display = hasMatch ? 'block' : 'none';
+      });
+    }
+
+    /* ========================================================
+       FLOATING FOOD EMOJIS & AUTO-DISAPPEARING BANGLA BUBBLES
+       ======================================================== */
+    const crittersContainer = document.getElementById('foodCritters');
+
+    const foodCritterDefs = [
+      {
+        emoji: '🍔',
+        messages: ['চিজি মজা! 😋', 'গরম বার্গার! 🍔', 'রসালো বাইট! 🤤', 'সেরা স্বাদ! 👑']
+      },
+      {
+        emoji: '🍟',
+        messages: ['মুচমুচে ফ্রাই! 🍟', 'পেরি-পেরি ঝাল! 🔥', 'সেরা ক্রাঞ্চ! ✨', 'গরম গরম! 😋']
+      },
+      {
+        emoji: '🍗',
+        messages: ['হট উইংস! 🍗', 'ক্রাঞ্চি চিকেন! 🔥', 'ঝাল কামড়! 🌶️', 'সেরা উইংস! 🤤']
+      },
+      {
+        emoji: '🍔',
+        messages: ['ডাবল চিজ! 🧀', 'চিজি বার্গার! 🍔', 'সেরা স্বাদ! 👑', 'দারুণ টেস্ট! 🤤']
+      },
+      {
+        emoji: '🍟',
+        messages: ['ক্রিসপি ফ্রাই! 🍟', 'সুপার টেস্ট! ✨', 'আসল মজা! 😋', 'পেরি-পেরি! 🔥']
+      },
+      {
+        emoji: '🍗',
+        messages: ['নাগা উইংস! 🔥', 'জুসি চিকেন! 🍗', 'স্পাইসি টেস্ট! 🌶️', 'মুচমুচে! 🤤']
+      }
+    ];
+
+    class FloatingCritter {
+      constructor(def, idx) {
+        this.def = def;
+        this.el = document.createElement('div');
+        this.el.className = 'food-critter';
+        this.el.textContent = def.emoji;
+        crittersContainer.appendChild(this.el);
+
+        this.width = 54;
+        this.height = 54;
+        const total = foodCritterDefs.length;
+
+        // Spread across horizontal width
+        this.x = 20 + Math.random() * (window.innerWidth - 80);
+        // Spread evenly across entire vertical height from top to bottom
+        this.y = (window.innerHeight / (total + 1)) * (idx + 1) + (Math.random() - 0.5) * 30;
+
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.55 + Math.random() * 0.5;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+
+        this.tilt = (Math.random() - 0.5) * 15;
+        this.bobOffset = Math.random() * Math.PI * 2;
+
+        const handleTap = (e) => {
+          e.stopPropagation();
+          this.popReaction();
+        };
+
+        this.el.addEventListener('click', handleTap);
+        this.el.addEventListener('touchstart', handleTap, { passive: false });
+      }
+
+      popReaction() {
+        // Pop bounce animation
+        this.el.classList.remove('bouncing');
+        void this.el.offsetWidth;
+        this.el.classList.add('bouncing');
+
+        // Tiny firecracker sparkle
+        const rect = this.el.getBoundingClientRect();
+        createFirecracker(rect.left + rect.width / 2, rect.top + rect.height / 2, 22);
+
+        // Pick short Bangla message
+        const text = this.def.messages[Math.floor(Math.random() * this.def.messages.length)];
+
+        // Small speech bubble directly above the tapped emoji
+        const bubble = document.createElement('div');
+        bubble.className = 'critter-bubble';
+        bubble.textContent = text;
+        bubble.style.left = `${this.x + this.width / 2}px`;
+        bubble.style.top = `${this.y}px`;
+        crittersContainer.appendChild(bubble);
+
+        // Slowly disappears automatically
+        setTimeout(() => {
+          if (bubble.parentNode) bubble.parentNode.removeChild(bubble);
+        }, 1800);
+
+        // Playful nudge bounce
+        this.vx = (Math.random() - 0.5) * 4;
+        this.vy = (Math.random() - 0.5) * 4;
+      }
+
+      update(time) {
+        const maxX = window.innerWidth - this.width - 12;
+        const maxY = window.innerHeight - this.height - 12;
+
+        if (Math.abs(this.vx) > 0.9) this.vx *= 0.97;
+        if (Math.abs(this.vy) > 0.9) this.vy *= 0.97;
+
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Roam full viewport from top (12px) to bottom (maxY)
+        if (this.x < 12) { this.x = 12; this.vx = Math.abs(this.vx); }
+        if (this.x > maxX) { this.x = maxX; this.vx = -Math.abs(this.vx); }
+        if (this.y < 12) { this.y = 12; this.vy = Math.abs(this.vy); }
+        if (this.y > maxY) { this.y = maxY; this.vy = -Math.abs(this.vy); }
+
+        const bob = Math.sin(time * 0.0025 + this.bobOffset) * 5;
+        const tilt = Math.sin(time * 0.002 + this.bobOffset) * 10;
+
+        this.el.style.transform = `translate3d(${this.x}px, ${this.y + bob}px, 0) rotate(${tilt}deg)`;
+      }
+    }
+
+    let activeCritters = [];
+    function initCritters() {
+      if (!crittersContainer) return;
+      activeCritters = foodCritterDefs.map((def, idx) => new FloatingCritter(def, idx));
+
+      function animateCritters(time) {
+        activeCritters.forEach(c => c.update(time));
+        requestAnimationFrame(animateCritters);
+      }
+      requestAnimationFrame(animateCritters);
+    }
+    window.addEventListener('DOMContentLoaded', initCritters);
+  </script>
+</body>
+
+</html>
